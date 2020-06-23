@@ -1,4 +1,5 @@
-const { prefix } = require("../config.json");
+// const { prefix } = require("../config.json");
+const prefix = process.env.prefix;
 
 module.exports = {
   name: "help",

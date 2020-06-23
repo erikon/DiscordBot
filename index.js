@@ -1,5 +1,7 @@
 const fs = require("fs");
-const { prefix, token } = require("./config.json");
+// const { prefix, token } = require("./config.json");
+const prefix = process.env.prefix;
+const token = process.env.token;
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
