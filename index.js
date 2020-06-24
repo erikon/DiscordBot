@@ -1,7 +1,8 @@
 const fs = require("fs");
-// const { prefix, token } = require("./config.json");
+// const { prefix, token, juan } = require("./config.json");
 const prefix = process.env.prefix;
 const token = process.env.token;
+const juan = process.env.juan;
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -20,6 +21,9 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
+  if (message.mentions.users.get(juan)) {
+    message.channel.send("You are undesirable puny human!");
+  }
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
