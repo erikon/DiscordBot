@@ -27,16 +27,18 @@ module.exports = {
       const collector = message.createReactionCollector(filter, {
         time: 10000
       });
-
+      let num_votes = 0;
       collector.on("collect", response => {
         console.log(`Collected ${response.emoji.name}`);
+        num_votes += 1;
       });
 
       collector.on("end", collected => {
-        console.log(`Collected ${collected.size} votes`);
+        console.log(`Collected ${num_votes} votes`);
         const voiceStateCache = message.guild.voiceStates.cache;
         let num_users = voiceStateCache.size;
-        if (collected.size >= num_users / 2) {
+
+        if (num_votes >= num_users / 2) {
           if (message.channel.guild.name === name_test) {
             const voice_state = voiceStateCache.get(eric);
             const guild = message.channel.guild;
