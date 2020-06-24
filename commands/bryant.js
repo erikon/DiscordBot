@@ -1,12 +1,12 @@
 module.exports = {
-  name: "widepeepo",
-  description: "Bryant Language",
-  usage: "",
+  name: "bryant",
+  description: "Bryant's Love Life",
+  usage: "(Must be in a voice channel)",
   cooldown: 5,
   async execute(message, args) {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
-      const dispatcher = connection.play("./assets/audio_file_example.mp3");
+      const dispatcher = connection.play("./assets/bryant1.mp3");
       dispatcher.setVolume(0.8);
       dispatcher.on("start", () => {
         console.log("Audio is now playing!");
