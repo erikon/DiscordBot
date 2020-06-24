@@ -4,11 +4,11 @@ module.exports = {
   usage: "",
   cooldown: 5,
   execute(message, args) {
-    message.channel.send({
+    message.channel.send("Imagine being Bryant Chung in 2020", {
       files: [
         {
           attachment: "./assets/imagine.png",
-          name: "Imagine being Bryant Chung in 2020.png"
+          name: "imagine.png"
         }
       ]
     });
