@@ -21,7 +21,7 @@ module.exports = {
       target_user.displayAvatarURL({ format: "jpg" })
     );
     // const watergun = await Canvas.loadImage("./assets/watergun2.png");
-    const brainblast = await Canvas.loadImage("./assets/Blast.png");
+    const brainblast = await Canvas.loadImage("./assets/Blast2.png");
 
     ctx.drawImage(avatar, 25, 25, 200, 200);
     ctx.drawImage(brainblast, 250, 25, 200, 200);
