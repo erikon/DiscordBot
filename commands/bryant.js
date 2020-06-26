@@ -10,14 +10,6 @@ module.exports = {
       dispatcher.setVolume(0.8);
       dispatcher.on("start", () => {
         console.log("Audio is now playing!");
-        message.channel.send({
-          files: [
-            {
-              attachment: "./assets/widepeepo.jpg",
-              name: "widepeepo.jpg"
-            }
-          ]
-        });
       });
 
       dispatcher.on("finish", () => {
