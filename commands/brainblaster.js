@@ -25,7 +25,7 @@ module.exports = {
 
     ctx.drawImage(avatar, 25, 25, 200, 200);
     ctx.drawImage(watergun, 250, 25, 200, 200);
-    ctx.drawImage(avatar, 475, 25, 200, 200);
+    ctx.drawImage(brainblast, 475, 25, 200, 200);
 
     const attachment = new Discord.MessageAttachment(
       canvas.toBuffer(),
