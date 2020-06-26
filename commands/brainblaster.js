@@ -8,7 +8,7 @@ module.exports = {
     const user = message.author;
     const target_user = message.mentions.members.first().user;
 
-    const canvas = Canvas.createCanvas(400, 250);
+    const canvas = Canvas.createCanvas(550, 250);
     const ctx = canvas.getContext("2d");
 
     const background = await Canvas.loadImage("./assets/black-background.jpg");
