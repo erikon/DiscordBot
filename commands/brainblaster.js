@@ -20,7 +20,9 @@ module.exports = {
     const avatar = await Canvas.loadImage(
       target_user.displayAvatarURL({ format: "jpg" })
     );
-    const watergun = await Canvas.loadImage("./assets/watergun.png");
+    const watergun = await Canvas.loadImage("./assets/watergun2.png");
+    const brainblast = await Canvas.loadImage("./assets/BrainBlast2.png");
+
     ctx.drawImage(avatar, 25, 25, 200, 200);
     ctx.drawImage(watergun, 250, 25, 200, 200);
     ctx.drawImage(avatar, 475, 25, 200, 200);
