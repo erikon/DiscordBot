@@ -1,9 +1,10 @@
 const fs = require("fs");
-// const { prefix, token, juan, donge } = require("./config.json");
+// const { prefix, token, juan, donge, joey } = require("./config.json");
 const prefix = process.env.prefix;
 const token = process.env.token;
 const juan = process.env.juan;
 const donge = process.env.donge;
+const joey = process.env.joey;
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -47,6 +48,30 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
         .get(newState.channelID)
         .join();
       const dispatcher = connection.play("./assets/donger-sigh.mp3");
+      dispatcher.setVolume(0.8);
+      dispatcher.on("start", () => {
+        console.log("Audio is now playing!");
+      });
+
+      dispatcher.on("finish", () => {
+        console.log("Audio has finished playing!");
+        dispatcher.destroy();
+        connection.disconnect();
+      });
+
+      // Always remember to handle errors appropriately!
+      dispatcher.on("error", err => {
+        console.log(err);
+        dispatcher.destroy();
+        connection.disconnect();
+      });
+    }
+  } else if (oldState.id === joey && newState.id === joey) {
+    if (!oldState.channelID && newState.channelID) {
+      const connection = await client.channels.cache
+        .get(newState.channelID)
+        .join();
+      const dispatcher = connection.play("./assets/joey_kidding.mp3");
       dispatcher.setVolume(0.8);
       dispatcher.on("start", () => {
         console.log("Audio is now playing!");
