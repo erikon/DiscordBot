@@ -15,16 +15,16 @@ module.exports = {
         const username = target_user.user.username;
         const connection = await message.member.voice.channel.join();
 
-        connection.on("disconnect", () => {
-          fs.unlink("./" + username + "_voice.wav", err => {
-            if (err) throw err;
-            console.log("Recording was deleted");
-          });
-        });
+        // connection.on("disconnect", () => {
+        //   fs.unlink("./" + username + "_voice.wav", err => {
+        //     if (err) throw err;
+        //     console.log("Recording was deleted");
+        //   });
+        // });
         const audio = connection.receiver.createStream(target_user, {
           mode: "pcm"
         });
-        let writeStream = new FileWriter("./" + username + "_voice.wav", {
+        let writeStream = new FileWriter("./voice.wav", {
           sampleRate: 48000,
           channels: 2
         });
@@ -32,16 +32,10 @@ module.exports = {
         audio.resume();
 
         audio.on("end", () => {
-          message.channel
-            .send("Clip of " + username, {
-              files: ["./" + username + "_voice.wav"]
-            })
-            .then(() => {
-              connection.disconnect();
-            })
-            .catch(err => {
-              console.error(err);
-            });
+          message.channel.send("Clip of " + username, {
+            files: ["./voice.wav"]
+          });
+          connection.disconnect();
         });
       }
     } else {
