@@ -18,6 +18,10 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+process.on("unhandledRejection", error =>
+  console.error("Uncaught Promise Rejection", error)
+);
+
 client.once("ready", () => {
   console.log("ready!");
 });
