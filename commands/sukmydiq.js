@@ -6,7 +6,7 @@ module.exports = {
     message.channel.send("Suq my diq Robert!", {
       files: [
         {
-          attachment: "./assets/robface.jpg",
+          attachment: "./assets/robface.png",
           name: "robface.jpg"
         }
       ]
