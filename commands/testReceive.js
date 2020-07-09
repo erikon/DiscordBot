@@ -16,7 +16,7 @@ module.exports = {
         const connection = await message.member.voice.channel.join();
 
         connection.on("disconnect", () => {
-          fs.unlink("./" + username + "voice.wav", err => {
+          fs.unlink("./" + username + "_voice.wav", err => {
             if (err) throw err;
             console.log("Recording was deleted");
           });
@@ -34,10 +34,13 @@ module.exports = {
         audio.on("end", () => {
           message.channel
             .send("Clip of " + username, {
-              files: ["./" + username + "voice.wav"]
+              files: ["./" + username + "_voice.wav"]
             })
             .then(() => {
               connection.disconnect();
+            })
+            .catch(err => {
+              console.error(err);
             });
         });
       }
