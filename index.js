@@ -1,10 +1,10 @@
+require("dotenv").config();
 const fs = require("fs");
-// const { prefix, token, juan, donge, joey } = require("./config.json");
-const prefix = process.env.prefix;
-const token = process.env.token;
-const juan = process.env.juan;
-const donge = process.env.donge;
-const joey = process.env.joey;
+const prefix = process.env.PREFIX;
+const token = process.env.TOKEN;
+const juan = process.env.JUAN;
+const donge = process.env.DONGE;
+const joey = process.env.JOEY;
 
 const Discord = require("discord.js");
 const client = new Discord.Client();

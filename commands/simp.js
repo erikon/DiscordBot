@@ -1,7 +1,6 @@
-// const { simp_test, simp_prod, name_test } = require("../config.json");
-const simp_test = process.env.simp_test;
-const simp_prod = process.env.simp_prod;
-const name_test = process.env.name_test;
+const simp_test = process.env.SIMP_TEST;
+const simp_prod = process.env.SIMP_PROD;
+const name_test = process.env.NAME_TEST;
 
 module.exports = {
   name: "simp",

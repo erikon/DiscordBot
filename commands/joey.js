@@ -1,19 +1,11 @@
 const Discord = require("discord.js");
 
-// const {
-//   eric,
-//   joey,
-//   francis,
-//   jail,
-//   afk_bench,
-//   name_test
-// } = require("../config.json");
-const eric = process.env.eric;
-const joey = process.env.joey;
-const francis = process.env.francis;
-const jail = process.env.jail;
-const afk_bench = process.env.afk_bench;
-const name_test = process.env.name_test;
+const eric = process.env.ERIC;
+const joey = process.env.JOEY;
+const francis = process.env.FRANCIS;
+const jail = process.env.JAIL;
+const afk_bench = process.env.AFK_BENCH;
+const name_test = process.env.NAME_TEST;
 
 module.exports = {
   name: "joey",
