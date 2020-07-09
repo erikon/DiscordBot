@@ -16,7 +16,7 @@ module.exports = {
         const connection = await message.member.voice.channel.join();
 
         connection.on("disconnect", () => {
-          fs.unlink("./" + username + "_voice.wav", err => {
+          fs.unlink("./voice.wav", err => {
             if (err) throw err;
             console.log("Recording was deleted");
           });
