@@ -13,6 +13,7 @@ module.exports = {
         './assets/thatway1.mp3'
       ];
       var randomFile = clipFiles[Math.floor(Math.random() * clipFiles.length)];
+      console.log(randomFile);
       const dispatcher = connection.play(randomFile);
       dispatcher.setVolume(0.8);
       dispatcher.on("start", () => {
