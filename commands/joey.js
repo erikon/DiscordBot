@@ -36,7 +36,8 @@ module.exports = {
           console.log(`Collected ${num_votes} votes`);
           const voiceStateCache = message.guild.voiceStates.cache;
           let num_users = voiceStateCache.size;
-
+          console.log(num_users);
+          console.log(num_votes);
           if (num_votes >= num_users / 2) {
             if (message.channel.guild.name === name_test) {
               const voice_state = voiceStateCache.get(eric);
