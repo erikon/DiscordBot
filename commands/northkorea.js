@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "north korea",
+  name: "northkorea",
   description: "Dictators",
   usage: "",
   cooldown: 5,
