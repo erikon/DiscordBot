@@ -5,8 +5,8 @@ const DB_URL = process.env.DATABASE_URL;
 
 const sequelize = new Sequelize(DB_URL)
 
-const User = require('./models/Users')(sequelize, Sequelize.DataTypes);
-const BryantType = require('./models/Types')(sequelize, Sequelize.DataTypes);
+const User = require('./models/users')(sequelize, Sequelize.DataTypes);
+const BryantType = require('./models/types')(sequelize, Sequelize.DataTypes);
 
 const MESSAGES = [
   "think mayo is spicy",
