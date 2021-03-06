@@ -2,12 +2,11 @@ require("dotenv").config();
 const Sequelize = require('sequelize');
 
 const DB_URL = process.env.DATABASE_URL;
-console.log(process.env.PREFIX)
-console.log(DB_URL)
+
 const sequelize = new Sequelize(DB_URL)
 
 const User = require('./models/Users')(sequelize, Sequelize.DataTypes);
-const BryantType = require('./models/BryantType')(sequelize, Sequelize.DataTypes);
+const BryantType = require('./models/Types')(sequelize, Sequelize.DataTypes);
 
 const MESSAGES = [
   "think mayo is spicy",
