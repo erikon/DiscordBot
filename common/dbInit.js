@@ -1,11 +1,11 @@
 require("dotenv").config();
 const Sequelize = require('sequelize');
 
-const DB_URL = process.env.DATABASE_URL;
+const DB_URL = process.env.DATABASE_URL || 'postgres://juanadmin:password@localhost:5432/juanbot';
 
 const sequelize = new Sequelize(DB_URL, {
   dialect: 'postgres',
-  ssl: { rejectUnauthorized: false },
+  ssl: process.env.DATABASE_URL ? true : false
 });
 
 const User = require('./models/users')(sequelize, Sequelize.DataTypes);
