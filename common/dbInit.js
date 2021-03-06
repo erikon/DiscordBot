@@ -5,10 +5,7 @@ const DB_URL = process.env.DATABASE_URL;
 
 const sequelize = new Sequelize(DB_URL, {
   dialect: 'postgres',
-  protocol: 'postgres',
-  dialectOptions: {
-    ssl: process.env.USE_SSL,
-  }
+  ssl: process.env.USE_SSL,
 });
 
 const User = require('./models/users')(sequelize, Sequelize.DataTypes);
