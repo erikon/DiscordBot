@@ -1,12 +1,8 @@
-require("dotenv").config();
-const Discord = require("discord.js");
-
 const { Types } = require("../common/dbObjects");
-
 
 module.exports = {
   name: "newtype",
-  description: "???",
+  description: "Upgraded Bryant Prompt",
   usage: "!type [name]",
   cooldown: 5,
   execute(message, args) {

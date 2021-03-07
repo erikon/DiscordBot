@@ -7,14 +7,19 @@ const { Types } = require("../common/dbObjects");
 
 
 module.exports = {
-  name: "addtype",
-  description: "Add a new Bryant prompt (For JuanBot Devs Only)",
-  usage: "!addtype [prompt]",
+  name: "deletetype",
+  description: "Delete a Bryant prompt (for JuanBot Devs Only)",
+  usage: "!deletetype [type_id]",
   cooldown: 5,
   execute(message, args) {
     if (message.member.roles.cache.some(role => role.id === DEV_ROLE_ID)) {
-      const addType = Types.create({message: args[0]}, type => {
-        message.channel.send(message.author.toString() + "has added the following type prompt: '" + type.message + "'");
+      Types.destroy({
+        where: {
+          tid: args[0]
+        }
+      }, num_deleted => {
+        console.log(num_deleted + " rows deleted from DB.");
+        message.channel.send(num_deleted + " prompts deleted.");
       });
     } else {
       message.reply("You are not worthy of speaking to me.");
