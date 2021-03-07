@@ -12,7 +12,7 @@ module.exports = {
   execute(message, args) {
     const AllTypes = Types.findAll().then(types => {
         const typeLen = types.length;
-        message.reply("Bryant the type of guy to " + types[Math.floor(Math.random() * typeLen)])
+        message.reply("Bryant the type of guy to " + types[Math.floor(Math.random() * typeLen)].message)
     });
   }
 };
