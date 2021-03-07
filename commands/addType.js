@@ -14,7 +14,7 @@ module.exports = {
   execute(message, args) {
     if (message.member.roles.cache.some(role => role.id === DEV_ROLE_ID)) {
       const addType = Types.create({message: args[0]}).then(type => {
-        message.channel.send(message.author.toString() + "has added the following type prompt: '" + type.message + "'");
+        message.channel.send(message.author.toString() + " has added the following type prompt: '" + type.message + "'");
       });
 
     } else {
