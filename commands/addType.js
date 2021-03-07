@@ -13,9 +13,10 @@ module.exports = {
   cooldown: 5,
   execute(message, args) {
     if (message.member.roles.cache.some(role => role.id === DEV_ROLE_ID)) {
-      const addType = Types.create({message: args[0]}, type => {
+      const addType = Types.create({message: args[0]}).then(type => {
         message.channel.send(message.author.toString() + "has added the following type prompt: '" + type.message + "'");
       });
+
     } else {
       message.reply("You are not worthy of speaking to me.");
     }

@@ -17,7 +17,7 @@ module.exports = {
         where: {
           tid: args[0]
         }
-      }, num_deleted => {
+      }).then(num_deleted => {
         console.log(num_deleted + " rows deleted from DB.");
         message.channel.send(num_deleted + " prompts deleted.");
       });
