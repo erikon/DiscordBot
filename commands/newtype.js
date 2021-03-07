@@ -11,10 +11,8 @@ module.exports = {
   cooldown: 5,
   execute(message, args) {
     const AllTypes = Types.findAll().then(types => {
-        console.log(types);
-        console.log(types.length);
+        const typeLen = types.length;
+        message.reply("Bryant the type of guy to " + types[Math.floor(Math.random() * typeLen)])
     });
-    console.log(AllTypes);
-    // message.reply((args[0] || "Bryant") + " the type of guy to " + MESSAGES[Math.floor(Math.random() * MESSAGES.length)])
   }
 };
