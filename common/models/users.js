@@ -1,3 +1,4 @@
+// TODO: Refactor schema for analytics tracking
 module.exports = (sequelize, DataTypes) => {
 	return sequelize.define('users', {
     uid: {

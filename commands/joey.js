@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Discord = require("discord.js");
 
 const eric = process.env.ERIC;

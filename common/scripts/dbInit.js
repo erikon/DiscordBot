@@ -16,8 +16,8 @@ const options = process.env.ENV == 'production' ? {
 
 const sequelize = new Sequelize(DB_URL, options);
 
-const User = require('./models/users')(sequelize, Sequelize.DataTypes);
-const BryantType = require('./models/types')(sequelize, Sequelize.DataTypes);
+const User = require('../models/users')(sequelize, Sequelize.DataTypes);
+const BryantType = require('../models/types')(sequelize, Sequelize.DataTypes);
 
 const MESSAGES = [
   "think mayo is spicy",
