@@ -33,16 +33,17 @@ module.exports = {
 
 
             audio.on("end", () => {
-              message.channel.send("Clip of " + username, {
-                files: ["/../recordings/test.pcm"]
-              });
               connection.disconnect();
             });
           } else if (speaking) {
             console.log(`${user.username} started speaking`);
           }
+        });
 
-
+        connection.on('disconnect', () => {
+          message.channel.send("Clip of " + username, {
+            files: ["/../recordings/test.pcm"]
+          });
         });
 
       }
