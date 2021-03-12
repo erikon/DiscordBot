@@ -22,7 +22,8 @@ module.exports = {
         const connection = await message.member.voice.channel.join();
 
         connection.on('speaking', (user, speaking) => {
-          if (speaking && user === target_user) {
+          console.log('Connection made')
+          if (speaking && user === target_user.user) {
             console.log(`${user.username} started speaking`);
             const audio = connection.receiver.createStream(user, {
               mode: "pcm"
@@ -37,7 +38,11 @@ module.exports = {
               });
               connection.disconnect();
             });
+          } else if (speaking) {
+            console.log(`${user.username} started speaking`);
           }
+
+
         });
 
       }
