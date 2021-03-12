@@ -1,5 +1,11 @@
 const fs = require("fs");
-var FileWriter = require("wav").FileWriter;
+
+const createNewChunk = () => {
+    // const pathToFile = __dirname + `/../recordings/${Date.now()}.pcm`;
+    const pathToFile = __dirname + `/../recordings/test.pcm`;
+
+    return fs.createWriteStream(pathToFile);
+};
 
 module.exports = {
   name: "listen",
@@ -15,28 +21,25 @@ module.exports = {
         const username = target_user.user.username;
         const connection = await message.member.voice.channel.join();
 
-        connection.on("disconnect", () => {
-          fs.unlink("./voice.wav", err => {
-            if (err) throw err;
-            console.log("Recording was deleted");
-          });
-        });
-        const audio = connection.receiver.createStream(target_user, {
-          mode: "pcm"
-        });
-        let writeStream = new FileWriter("./voice.wav", {
-          sampleRate: 48000,
-          channels: 2
-        });
-        audio.pipe(writeStream);
-        audio.resume();
+        connection.on('speaking', (user, speaking) => {
+          if (speaking && user === target_user) {
+            console.log(`${user.username} started speaking`);
+            const audio = connection.receiver.createStream(user, {
+              mode: "pcm"
+            });
 
-        audio.on("end", () => {
-          message.channel.send("Clip of " + username, {
-            files: ["./voice.wav"]
-          });
-          connection.disconnect();
+            audio.pipe(createNewChunk());
+
+
+            audio.on("end", () => {
+              message.channel.send("Clip of " + username, {
+                files: ["/../recordings/test.pcm"]
+              });
+              connection.disconnect();
+            });
+          }
         });
+
       }
     } else {
       message.channel.send("Error: You must be in a voice channel.");
