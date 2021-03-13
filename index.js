@@ -1,6 +1,6 @@
 require("dotenv").config();
 const fs = require("fs");
-const prefix = process.env.PREFIX;
+const prefix = process.env.CMD_PREFIX;
 const token = process.env.TOKEN;
 const juan = process.env.JUAN;
 const donge = process.env.DONGE;
@@ -22,6 +22,7 @@ process.on("unhandledRejection", error =>
   console.error("Uncaught Promise Rejection", error)
 );
 
+// Set up DB on `Client` Ready
 client.once("ready", () => {
   console.log("ready!");
 });
