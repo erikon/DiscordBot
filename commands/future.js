@@ -7,7 +7,7 @@ module.exports = {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       const dispatcher = connection.play("./assets/future.mp3");
-      dispatcher.setVolume(0.8);
+      dispatcher.setVolume(2);
       dispatcher.on("start", () => {
         console.log("Audio is now playing!");
       });
