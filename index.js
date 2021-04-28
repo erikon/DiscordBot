@@ -52,7 +52,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
       const connection = await client.channels.cache
         .get(newState.channelID)
         .join();
-      const dispatcher = connection.play("./assets/donger-sigh.mp3");
+      const dispatcher = connection.play("./assets/aaang.mp3");
       dispatcher.setVolume(0.8);
       dispatcher.on("start", () => {
         console.log("Audio is now playing!");
